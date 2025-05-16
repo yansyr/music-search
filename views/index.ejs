@@ -1,0 +1,32 @@
+<%- include ("partials/header.ejs") %>
+
+<main>
+
+    <form id="search-form" name="search-form" action="/submit" method="post">
+        <div>
+            <label for="artist">Artist:</label>
+            <input type="text" name="artist" id="artist" placeholder="Artist">
+        </div>
+        <div>
+            <label for="title">Lyric Title:</label>
+        <input type="text" name="title" id="title" placeholder="Enter the lyric title">
+        </div>
+        <div>
+            <input id="submit" type="submit" value="Search">
+        </div>
+    </form>
+
+    <% if (locals.content) { %>
+        <% if (locals.artist  &&  locals.title) { %>
+            <h2><%= locals.artist %> - <%= locals.title %></h2>
+        <% } %>
+        <p><%- locals.content %></p>
+    <% } else { %>
+        <p class="error">Lyrick not found</p>
+    <% } %>
+
+
+</main>
+
+<%- include ("partials/footer.ejs") %>
+
